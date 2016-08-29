@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MY TODO</title>
+	<link rel="stylesheet" href="css/todos.css">
+</head>
+<body>
+	<div id="todosdiv">
+		<header>
+			<hl>TODO</hl>
+		</header>
+		<hr>
+		<section>
+			<ul class="todos">
+				<li>This is TODO 1</li>
+				<li>This is TODO 2</li>
+				<li>This is TODO 3</li>
+			</ul>		
+
+			<input type="text" id="inputTodo"/>
+			<button id="btnAddTodo">Add</button>
+		</section>
+		<footer>Designed By Peter (C) 2016</footer>
+	</div>
+		
+	<script src="jplite.js"></script>
+		
+	<script>
+		$('#btnAddTodo').on('click', function(){
+			$.getJSON('/todos',null,function(json){
+				$('.todos').append('new todo: ' + json);
+				
+			})
+		});
+	</script>
+</body>
+</html>
